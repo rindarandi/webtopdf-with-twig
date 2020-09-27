@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        #invoice {
+            padding: 30px;
+        }
+
+        .invoice {
+            position: relative;
+            background-color: #FFF;
+            min-height: 680px;
+            padding: 15px
+        }
+
+        .invoice .company-details {
+            text-align: right
+        }
+
+        .invoice .company-details .name {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        .invoice .contacts {
+            margin-bottom: 20px
+        }
+
+        .invoice .invoice-to {
+            text-align: left
+        }
+
+        .invoice .invoice-to .to {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        .invoice .invoice-details {
+            text-align: right
+        }
+
+        .invoice .invoice-details .invoice-id {
+            margin-top: 0;
+            color: #eb8f8f
+        }
+
+        .invoice main {
+            padding-bottom: 50px
+        }
+
+        .invoice main .notices {
+            padding-left: 6px;
+            border-left: 6px solid #eb8f8f
+        }
+
+        .invoice main .notices .notice {
+            font-size: 1em
+        }
+
+        .invoice table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin-bottom: 20px
+        }
+
+        .invoice table td,
+        .invoice table th {
+            padding: 15px;
+            background: #eee;
+            border-bottom: 1px solid #fff
+        }
+
+        .invoice table th {
+            white-space: nowrap;
+            font-weight: 400;
+            font-size: 16px
+        }
+
+        .invoice table td h3 {
+            margin: 0;
+            font-weight: 400;
+            color: #eb8f8f;
+            font-size: 1.2em
+        }
+
+        .invoice table .qty,
+        .invoice table .total,
+        .invoice table .unit {
+            text-align: center;
+            font-size: 1.2em
+        }
+
+        .invoice table .no {
+            text-align: center;
+            color: #fff;
+            font-size: 1.2em;
+            background: #eb8f8f
+        }
+
+        .invoice table .unit {
+            background: #ddd
+        }
+
+        .invoice table .total {
+            background: #eb8f8f;
+            color: #fff
+        }
+
+        .invoice table tbody tr:last-child td {
+            border: none
+        }
+
+        .invoice table tfoot td {
+            background: 0 0;
+            border-bottom: none;
+            white-space: nowrap;
+            text-align: right;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            border-top: 1px solid #aaa
+        }
+
+        .invoice table tfoot tr:first-child td {
+            border-top: none
+        }
+
+        .invoice table tfoot tr:last-child td {
+            color: #eb8f8f;
+            font-size: 1.1em;
+            border-top: 1px solid #eb8f8f
+        }
+
+        .invoice table tfoot tr td:first-child {
+            border: none
+        }
+
+        .invoice footer {
+            width: 100%;
+            text-align: center;
+            color: #777;
+            border-top: 1px solid #aaa;
+            padding: 8px 0
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="invoice">
+        <div class="invoice overflow-auto">
+            <div style="min-width: 400px">
+                <main>
+                    <div class="row contacts">
+                        <div class="col invoice-to">
+                            <div class="text-gray-light">Dear :</div>
+                            <h4 class="to">{{ user.user_nama }}</h4>
+                            <div class="address">{{ user.user_alamat }}</div>
+                            <div class="email"><a href="mailto:rindacahya16@gmail.com">{{ user.user_email }}</a></div>
+                        </div>
+                        <div class="col invoice-details">
+                            <h1 class="invoice-id">Hampers Hijab</h1>
+                            <div class="company_address">Jl. Kalianyar no 15, Solo,Jawa Tengah</div>
+                            <div class="company_email"><a href="mailto:rindacahya16@gmail.com">hamperhijab@example.com</a></div>
+                        </div>
+                    </div>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th class="text-left">Tipe Hijab</th>
+                                <th class="text-right">Harga Satuan</th>
+                                <th class="text-right">Jumlah</th>
+                                <th class="text-right">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="no">1</td>
+                                <td class="text-left">
+                                    <h3>Bergo Babat</h3>Warna putih size L dengan panjang bagian depan 30 cm dan panjang
+                                    belakang 40 cm
+                                </td>
+                                <td class="unit">Rp.40.000</td>
+                                <td class="qty">5</td>
+                                <td class="total">Rp.200.000</td>
+                            </tr>
+                            <tr>
+                                <td class="no">2</td>
+                                <td class="text-left">
+                                    <h3>Pashmina Ceruty</h3>Warna navy dan hitam, panjang 175 cm lebar 90 cm, bahan
+                                    ceruty lembut
+                                </td>
+                                <td class="unit">Rp.25.000</td>
+                                <td class="qty">2</td>
+                                <td class="total">Rp.50.000</td>
+                            </tr>
+                            <tr>
+                                <td class="no">3</td>
+                                <td class="text-left">
+                                    <h3>Bergo Maryam</h3>Warna hitam, merah hati, dan milo dengan size M
+                                </td>
+                                <td class="unit">Rp.25.000</td>
+                                <td class="qty">3</td>
+                                <td class="total">Rp.75.000</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2"></td>
+                                <td colspan="2">Total</td>
+                                <td>Rp.325.000</td>
+                            </tr>
+                            </tr>
+                            <tr>
+                                <td colspan="2"></td>
+                                <td colspan="2">Bayar</td>
+                                <td>Rp.320.000</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"></td>
+                                <td colspan="2">Keterangan</td>
+                                <td>Lunas</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="notices">
+                        <div>Notice :</div>
+                        <div class="notice">Barang yang sudah dibeli tidak dapat dikembalikan, pembayaran bisa DP terlebih dahulu atau langsung Lunas</div>
+                    </div>
+                </main>
+                <footer>
+                    Invoice ini dibuat dengan hati yang tulus.
+                </footer>
+            </div>
+            <div></div>
+        </div>
+    </div>
+</body>
+
+</html>
